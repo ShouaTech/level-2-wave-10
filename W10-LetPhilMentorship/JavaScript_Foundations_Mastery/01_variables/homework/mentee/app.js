@@ -108,11 +108,12 @@ console.log(productName + " by " + productBrand + " - $" + productPrice);
 // Write your answer as a comment.
 
 
-inStock = false;
+// inStock = false;
 console.log("inStock: " + inStock);
 
 // productName = "Weight Gain Pills";
-
+// inStock did in fact not work because I declared a const variable for it, per the instructions
+// if it was let inStock = true, then it would work since you can reassign with let
 
 // ----------------------------------------------------------
 // TASK 6 — Fix the bad names
@@ -124,6 +125,12 @@ console.log("inStock: " + inStock);
 //   my score      → fix it
 //   X             → rename to something descriptive, then declare it
 //   GaMeLeVeL     → fix the casing
+
+const secondPlayer = "Melane";
+let myScore = "67";
+let firstPlace
+gameLevel = 5;
+
 
 // ----------------------------------------------------------
 // TASK 7 — Two-step declaration
@@ -139,6 +146,17 @@ console.log("inStock: " + inStock);
 //
 // You should see three console lines: undefined → 500 → 750
 
+
+let highScore;
+console.log(highScore);
+
+highScore = 500;
+console.log(highScore);
+
+highScore = 750;
+console.log(highScore);
+
+
 // ----------------------------------------------------------
 // TASK 8 — Connect the variables
 // ----------------------------------------------------------
@@ -149,6 +167,12 @@ console.log("inStock: " + inStock);
 //
 // Log: appName + " v" + version + " — built by " + authorName
 // Expected format: "TaskMaster v3 — built by [your name]"
+
+const appName = "TaskMaster";
+const version = 3;
+const authorName = "Benny Yang";
+
+console.log(appName + " v" + version + " - built by " + authorName);
 
 // ----------------------------------------------------------
 // ⭐ STRETCH GOAL
@@ -162,3 +186,16 @@ console.log("inStock: " + inStock);
 // Then reassign currentYear... wait, can you? Why not?
 // Write the answer as a comment.
 // What keyword would you need if currentYear could change?
+const startYear = "2020";
+const currentYear = "2025";
+let yearsRunning = currentYear - startYear;
+
+console.log(appName + " has been running for " + yearsRunning + " years.");
+// cannot reassign currentYear because it is a const variable and can't be changed
+// needs to be the let keyword
+
+let item1Price = 20;
+let item2Price = 30;
+let orderTotal = item1Price + item2Price;
+
+console.log("order total: $" + orderTotal);
