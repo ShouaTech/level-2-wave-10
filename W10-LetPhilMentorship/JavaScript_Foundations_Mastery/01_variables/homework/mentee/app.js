@@ -193,9 +193,3 @@ let yearsRunning = currentYear - startYear;
 console.log(appName + " has been running for " + yearsRunning + " years.");
 // cannot reassign currentYear because it is a const variable and can't be changed
 // needs to be the let keyword
-
-let item1Price = 20;
-let item2Price = 30;
-let orderTotal = item1Price + item2Price;
-
-console.log("order total: $" + orderTotal);

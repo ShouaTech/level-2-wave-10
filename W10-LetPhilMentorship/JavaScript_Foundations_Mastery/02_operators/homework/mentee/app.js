@@ -23,6 +23,14 @@
 //
 // Log: gameName + " — Player: " + playerName
 
+const gameName = "Space Blaster"; // this is the game were playing, the name of it wouldn't change
+const playerName = "Benny" // Benny is the player, his name would not change
+let playerScore = 0; // player score can change throughout the game
+let highScore = 850; // high score can change if someone beats it
+const pointsPerKill = 25; // the amount of points you get per kill wouldn't change to keep the game even
+let livesRemaining = 3; // your number of lives change whenever you get hit
+ 
+console.log(gameName + " - Player: " + playerName);
 // ----------------------------------------------------------
 // TASK 2 — Earn points
 // ----------------------------------------------------------
@@ -32,6 +40,13 @@
 //
 // Log: "Earned: " + totalEarned + " points"
 // Log: "Score: " + playerScore
+
+let totalEarned = 6 * pointsPerKill;
+playerScore += totalEarned
+
+console.log("Earned: " + totalEarned + " points");
+console.log("Score: " + playerScore);
+
 
 // ----------------------------------------------------------
 // TASK 3 — Take damage
@@ -43,6 +58,14 @@
 // Then log the result of: livesRemaining > 0
 // Write a comment: what does true/false mean in this context?
 
+livesRemaining -= 1;
+livesRemaining -= 1;
+
+console.log("Lives remaining: " + livesRemaining);
+console.log(livesRemaining > 0);
+// true/false in this scenario means is the number of lives remining greater than 0, in this case it's true
+
+
 // ----------------------------------------------------------
 // TASK 4 — Level bonus
 // ----------------------------------------------------------
@@ -53,15 +76,26 @@
 // Log: "Bonus: " + levelBonus
 // Log: "Score after bonus: " + playerScore
 
+levelBonus = playerScore * 0.5;
+levelBonus += playerScore;
+
+console.log("Bonus: " + levelBonus);
+console.log("Score after bonus: " + playerScore);
+
+
 // ----------------------------------------------------------
 // TASK 5 — Check the high score
 // ----------------------------------------------------------
 // Log the result of each comparison. Write your prediction
 // as a comment BEFORE running the code.
 //
-//   playerScore > highScore       → prediction:
-//   playerScore === highScore     → prediction:
-//   playerScore >= highScore      → prediction:
+//   playerScore > highScore       → prediction: false
+//   playerScore === highScore     → prediction: false
+//   playerScore >= highScore      → prediction: false
+
+console.log(playerScore > highScore);
+console.log(playerScore === highScore);
+console.log(playerScore >= highScore);
 
 // ----------------------------------------------------------
 // TASK 6 — Update the high score
@@ -74,6 +108,11 @@
 // Then reassign highScore to playerScore.
 // Log: "New high score: " + highScore
 
+console.log(playerScore > highScore);
+highScore = playerScore;
+console.log("New high score: " + highScore);
+
+
 // ----------------------------------------------------------
 // TASK 7 — Time remaining (modulus practice)
 // ----------------------------------------------------------
@@ -84,6 +123,13 @@
 //
 // Log: "Time left: " + minutes + " min " + secondsLeft + " sec"
 // ⚠️ minutes will be a decimal — that's expected. We'll fix it in Data Types.
+
+const totalSeconds = 245;
+const minutes = totalSeconds / 60;
+const secondsLeft = totalSeconds % 60;
+
+console.log("Time left: " + minutes + " min " + secondsLeft + " sec");
+
 
 // ----------------------------------------------------------
 // TASK 8 — Connect the dots summary
@@ -96,6 +142,13 @@
 //
 // Then log whether the player beat the original highScore (850):
 // endScore > 850
+
+const startScore = 0;
+const endScore = 150;
+const improvement = endScore - startScore;
+
+console.log(playerName + " improved by " + improvement + " points this session.");
+console.log(endScore > 850);
 
 // ----------------------------------------------------------
 // ⭐ STRETCH GOAL — Accuracy Rating
@@ -116,3 +169,11 @@
 // Bonus question (write as a comment):
 // accuracyPercent will have many decimal places. What do you think
 // we could use to round it to 2 decimal places? (Hint: coming in Data Types)
+
+const shotsFired = 40;
+const shotsHit = 31;
+const accuracyDecimal = shotsHit / shotsFired;
+const accuracyPercent = accuracyDecimal * 100;
+
+console.log(playerName + " accuracy: " + accuracyPercent + "%");
+console.log(accuracyPercent >= 75);
