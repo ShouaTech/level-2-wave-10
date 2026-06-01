@@ -175,5 +175,6 @@ const shotsHit = 31;
 const accuracyDecimal = shotsHit / shotsFired;
 const accuracyPercent = accuracyDecimal * 100;
 
-console.log(playerName + " accuracy: " + accuracyPercent + "%");
+console.log(playerName + " accuracy: " + accuracyPercent.toFixed(2) + "%");
 console.log(accuracyPercent >= 75);
+// to round it to 2 decimal places, we could .toFixed(2) to accuracyPercent to show 2 numbers after decimal
