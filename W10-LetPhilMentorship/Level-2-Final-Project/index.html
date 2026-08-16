@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Habit Tracker </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="page">
+
+    <div class="title-card">
+    <p id="results">Habits Shape Your Future</p>
+    <h3>Daily Habit Tracker</h3>
+
+    <div class="nav-group">
+    <a class="nav-btn" id="dash-btn" href="index.html">Dashboard</a>
+    <a class="nav-btn" id="contact-btn" href="contact.html">Contact</a>
+    <button class="nav-btn" id="dark-mode">Dark Mode 🌙</button>
+    </div>
+    </div>
+
+    <h4>Today</h4>
+    <div class="card1">
+
+    <p class="dashboard-title">Dashboard</p>
+
+    <div class="dashboard-row">
+        <p><em>Habits Complete:</em></p>
+        <p id="habits-done">0 / 0</p>
+    </div>
+
+</div>
+
+    <h4>Build</h4>
+    <div class="card2">
+        <div id="new-habit">
+        <p class="sub-text">Add New Habit</p>
+        </div>
+
+        <div class="habit-field">
+            <p id="habit-title">Habit Title</p>
+
+        <div class="input-row">
+        <input id="input-field"
+        type="text"
+        placeholder="Example: Go to the gym"
+        />
+        <button id="add-habit-btn">Add Habit</button>
+        </div>
+        </div>
+        <p id="habit-added"></p>
+    </div>
+
+    <section class="habits-section">
+  <p class="section-label">TRACK</p>
+
+  <h2>Your Habits</h2>
+
+
+  <div class="empty-habits empty-state">
+    <p id="no-habits">No habits yet. Add your first habit!</p>
+  </div>
+</section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Daily Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="page">
+
+    <div class="title-card">
+    <p id="results">Habits Shape Your Future</p>
+    <h3>Daily Habit Tracker</h3>
+
+    <div class="nav-group">
+    <a class="nav-btn" id="dash-btn" href="index.html">Dashboard</a>
+    <a class="nav-btn" id="contact-btn" href="contact.html">Contact</a>
+    <button class="nav-btn" id="dark-mode">Dark Mode 🌙</button>
+    </div>
+    </div>
+
+    <section class="contact-section">
+
+    <div class="contact-heading">
+    <p class="section-label">CONTACT</p>
+    <h2>Send a Message</h2>
+    <p class="contact-subtext">Questions, feedback, or ideas? Send a message below.</p>
+    </div>
+
+    <div class="contact-card">
+
+    <form id="contact-form">
+
+    <div class="form-field">
+    <label for="contact-name">Name</label>
+    <input type="text" id="contact-name" placeholder="Your name"/>
+    </div>
+
+    <div class="form-field">
+    <label for="contact-email">Email</label>
+    <input type="email" id="contact-email" placeholder="you@example.com"/>
+    </div>
+
+    <div class="form-field">
+    <label for="contact-message">Message</label>
+    <textarea id="contact-message"  placeholder="Write your message..."></textarea>
+    </div>
+
+    <button type="submit" id="send-message-btn">Send Message</button>
+
+    <p id="contact-status"></p>
+
+    </form>
+
+    </div>
+
+    <div class="quote-card">
+    <p class="section-label">DAILY MOTIVATION</p>
+    <h2>Stay Consistent</h2>
+    <p id="quote-text">Your daily quote will appear here.</p>
+    <button id="quote-btn">Get New Quote</button>
+    <p class="api-credit">
+    Quotes provided by
+    <a href="https://dummyjson.com/docs/quotes" target="_blank">DummyJSON Quotes API</a>
+    </p>
+    </div>
+
+    
+    </section>
+
+    </div>
+
+    <script src="contact.js"></script>
+</body>
+</html>

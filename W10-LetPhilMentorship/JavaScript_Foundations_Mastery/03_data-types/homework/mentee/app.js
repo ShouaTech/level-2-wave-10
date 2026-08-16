@@ -55,12 +55,47 @@ const testInputs = {
 //
 // Test with all four username test inputs. Log each result.
 
-function isValidUsername(username) {
-  
-}
+
 
 console.log("--- Task 1: Username Validation ---");
-// your code here
+
+function isValidUsername(username) {
+  if(typeof username !== "string") {
+    return {
+      valid: false,
+      message: "Username must be a string"
+    };
+  }
+  const length = username.length;
+
+  if (length < 3) {
+    return {
+      valid: false,
+      message: `Username must be at least 3 characters (got ${length})`
+    };
+  }
+  if(length > 20) {
+    return {
+      valid: false,
+      message: `Username must be 20 characters or fewer (got ${length})`
+    };
+  }
+  if(username.includes(" ")) {
+    return {
+      valid: false,
+      message: "Username cannot contain spaces"
+  };
+
+  return {
+    valid: true;
+    message: `${username} is a valid username`
+  };
+}
+
+console.log(isValidUsername(testInputs.validUsername));
+console.log(isValidUsername(testInputs.shortUsername));
+console.log(isValidUsername(testInputs.longUsername));
+console.log(isValidUsername(testInputs.spacesUsername));
 
 // ----------------------------------------------------------
 // TASK 2 — isValidEmail
@@ -84,12 +119,17 @@ console.log("--- Task 1: Username Validation ---");
 //
 // Test with validEmail, noAtEmail, noDomainEmail.
 
-function isValidEmail(email) {
-  // your code here
-}
-
 console.log("\n--- Task 2: Email Validation ---");
-// your code here
+
+function isValidEmail(email) {
+  const cleanEmail = email.trim().toLowerCase();
+  
+  return {
+    valid: true,
+    cleanEmail: cleanEmail,
+    message: ""
+  }
+}
 
 // ----------------------------------------------------------
 // TASK 3 — isValidAge
@@ -110,8 +150,15 @@ console.log("\n--- Task 2: Email Validation ---");
 // Write a comment: why use Number() instead of parseInt() here?
 
 function isValidAge(ageInput) {
-  // your code here
+  const age = Number(ageInput);
+  if (age < 13) {
+    return {
+      valid: false,
+      message: `"${ageInput}" is not a valid number` }
+    }
+  }
 }
+
 
 console.log("\n--- Task 3: Age Validation ---");
 // your code here

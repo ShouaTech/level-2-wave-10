@@ -1,0 +1,682 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(220, 43%, 92%);
+  color: #1e293b;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+
+/* HEADER */
+
+h3 {
+  margin: 0;
+  font-size: 35px;
+  text-shadow: 2px 2px 1px grey;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 25px;
+}
+
+#results {
+  color: hsl(215, 16%, 40%);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.title-card {
+  display: flex;
+  align-items: center;
+
+  background-color: #ffffff;
+  color: #1e293b;
+
+  padding: 10px 16px;
+  border-radius: 5px;
+}
+
+#results {
+  color: hsl(215, 16%, 40%);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.title-card h3 {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-btn {
+  border: none;
+  color: #64748b;
+
+  text-decoration: none;
+  padding: 7px 9px;
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+#dark-mode {
+  color: black;
+}
+
+.nav-btn {
+  border: none;
+  background-color: transparent;
+  color: #64748b;
+
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  background-color: #dbeafe;
+  color: #1e293b;
+}
+
+#dark-mode {
+  color: black;
+}
+
+#dark-mode:hover {
+  background-color: hsl(0, 0%, 5%);
+  color: white;
+}
+
+
+/* TODAY'S GOALS */
+
+.card1 {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 0 5px black;
+  padding: 20px 24px;
+  border-radius: 10px;
+
+  background-color: white;
+}
+
+.dashboard-title {
+  margin: 0 0 20px;
+  text-align: center;
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.dashboard-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 0;
+}
+
+.dashboard-row p {
+  margin: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin: 40px 0 6px 2px;
+  color: #3f6f8f;
+}
+
+.sub-text {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#habits-done {
+  font-size: 18px;
+}
+
+
+/* ADD HABIT */
+
+.card2 {
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 0 5px black;
+  padding: 10px;
+  border-radius: 10px;
+
+  background-color: white;
+}
+
+#new-habit {
+  text-align: center;
+}
+
+.input-row {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.habit-field {
+  flex: 1;
+}
+
+#input-field {
+  flex: 1;
+
+  padding: 16px 20px;
+  font-size: 18px;
+
+  border-radius: 12px;
+  border: 1px solid #555;
+}
+
+#add-habit-btn {
+  padding: 16px 24px;
+
+  border: none;
+  border-radius: 12px;
+
+  background-color: hsl(204, 39%, 45%);
+  color: white;
+
+  cursor: pointer;
+}
+
+#add-habit-btn:hover {
+  background-color: hsl(204, 39%, 35%);
+}
+
+
+/* HABITS SECTION */
+
+.habits-section {
+  padding: 24px 28px 40px;
+}
+
+.section-label {
+  color: #3f6f8f;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.habits-section h2 {
+  color: #1e293b;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+
+/* HABITS CONTAINER */
+
+.empty-habits {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty-habits.empty-state {
+  min-height: 90px;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #cbd5e1;
+  border-radius: 24px;
+}
+
+#no-habits {
+  margin: 0;
+  color: #64748b;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* INDIVIDUAL HABIT CARD */
+
+.habit-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 24px 28px;
+
+  background-color: white;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 18px;
+
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.habit-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.habit-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.habit-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.complete-btn,
+.delete-btn {
+  border: none;
+
+  padding: 14px 20px;
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.complete-btn {
+  background-color: #3f6f8f;
+  color: white;
+}
+
+.complete-btn:hover {
+  background-color: #315f7a;
+}
+
+.delete-btn {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.delete-btn:hover {
+  background-color: #fecaca;
+}
+
+
+/* DARK MODE */
+
+.dark-toggle {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.dark-toggle .title-card,
+.dark-toggle .card1,
+.dark-toggle .card2 {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+.dark-toggle h2,
+.dark-toggle h3,
+.dark-toggle h4 {
+  color: #e2e8f0;
+}
+
+.dark-toggle #results {
+  color: #94a3b8;
+}
+
+.dark-toggle #input-field {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+.dark-toggle #input-field::placeholder {
+  color: #94a3b8;
+}
+
+.dark-toggle .nav-btn {
+  color: #cbd5e1;
+}
+
+.dark-toggle .nav-btn:hover {
+  background-color: #334155;
+  color: white;
+}
+
+.dark-toggle #dark-mode {
+  color: white;
+}
+
+.dark-toggle #dark-mode:hover {
+  background-color: white;
+  color: black;
+}
+
+
+/* DARK HABIT CARDS */
+
+.dark-toggle .habit-card {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.dark-toggle .habit-title {
+  color: #e2e8f0;
+}
+
+.dark-toggle .complete-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.dark-toggle .complete-btn:hover {
+  background-color: #2563eb;
+}
+
+.dark-toggle .delete-btn {
+  background-color: #3f1f1f;
+  color: #fca5a5;
+}
+
+.dark-toggle .delete-btn:hover {
+  background-color: #522626;
+}
+
+/* CONTACT DARK MODE - MATCH DASHBOARD */
+
+.dark-toggle .contact-card,
+.dark-toggle .quote-card {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #e2e8f0;
+}
+
+.dark-toggle .contact-heading h2,
+.dark-toggle .form-field label,
+.dark-toggle .quote-card h2 {
+  color: #e2e8f0;
+}
+
+.dark-toggle .contact-subtext,
+.dark-toggle #quote-text {
+  color: #94a3b8;
+}
+
+.dark-toggle .form-field input,
+.dark-toggle .form-field textarea {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-toggle .form-field input::placeholder,
+.dark-toggle .form-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.dark-toggle #send-message-btn,
+.dark-toggle #quote-btn {
+  background-color: hsl(204, 39%, 45%);
+  color: white;
+}
+
+.dark-toggle #send-message-btn:hover,
+.dark-toggle #quote-btn:hover {
+  background-color: hsl(204, 39%, 35%);
+}
+/* CONTACT PAGE */
+
+.contact-section {
+  padding: 40px 28px;
+}
+
+.contact-heading {
+  margin-bottom: 28px;
+}
+
+.contact-heading h2 {
+  margin: 8px 0 10px;
+  font-size: 34px;
+  color: #1e293b;
+}
+
+.contact-subtext {
+  margin: 0;
+  font-size: 18px;
+  color: #64748b;
+}
+
+
+/* CONTACT CARD */
+
+.contact-card {
+  background-color: white;
+
+  padding: 28px;
+  border-radius: 18px;
+
+  border: 1px solid #cbd5e1;
+
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.18);
+}
+
+
+/* FORM */
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+
+  background-color: #f8fafc;
+  color: #1e293b;
+
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.form-field textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: 2px solid #3b82f6;
+  border-color: #3b82f6;
+}
+
+
+/* SEND BUTTON */
+
+#send-message-btn {
+  width: 100%;
+
+  padding: 15px 20px;
+
+  border: none;
+  border-radius: 12px;
+
+  background-color: #3f6f8f;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+#send-message-btn:hover {
+  background-color: #315f7a;
+}
+
+.quote-card {
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 12px;
+}
+
+#quote-btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: hsl(204, 39%, 45%);
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#quote-btn:hover {
+  background-color: hsl(204, 39%, 35%);
+}
+
+.api-credit {
+  font-size: 10px;
+}
+
+@media (max-width: 700px) {
+  body {
+    margin: 0;
+  }
+
+  #page {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .title-card {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .title-card h3 {
+    margin: 0;
+    font-size: 28px;
+  }
+
+  #results {
+    white-space: normal;
+  }
+
+  .nav-group {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .card1,
+  .card2 {
+    padding: 16px;
+  }
+
+  .dashboard-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  #input-field {
+    width: 100%;
+  }
+
+  #add-habit-btn {
+    width: 100%;
+  }
+
+  .habits-section {
+    padding: 20px 0 30px;
+  }
+
+  .habit-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .habit-buttons {
+    width: 100%;
+  }
+
+  .complete-btn,
+  .delete-btn {
+    flex: 1;
+  }
+
+  .contact-section {
+    padding: 24px 0;
+  }
+
+  .contact-heading h2 {
+    font-size: 28px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+
+  .form-field textarea {
+    min-height: 130px;
+  }
+
+  #quote-btn {
+    width: 100%;
+  }
+}
