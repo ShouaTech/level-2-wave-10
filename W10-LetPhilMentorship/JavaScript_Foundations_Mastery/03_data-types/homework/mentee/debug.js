@@ -16,9 +16,15 @@ const fullName = `${firstname} ${lastName}`;
 console.log(fullName); // "undefined Rivera"
 
 // What's wrong ↓
-
+  // The object uses firstName with a capital N, but we tried to get firstname.
 // Your fix ↓
 
+const user = { firstName: "alex", lastName: "Rivera" };
+
+const { firstName, lastName } = user;
+const fullName = `${firstName} ${lastName}`;
+
+console.log(fullName);
 
 // ----------------------------------------------------------
 // 🟡 DEBUG 2 — Medium
@@ -39,9 +45,20 @@ console.log(validateUsername("   "));    // ❌ should be invalid — logs "Vali
 console.log(validateUsername("alexdev")); // ✅ valid
 
 // What's wrong ↓
-
+  // A string with spaces is still truthy, so !username does not catch it
 // Your fix ↓
 
+function validateUsername(username) {
+  if (!username.trim()) {
+    return "Username is required";
+  }
+
+  return `Valid: ${username}`;
+}
+
+console.log(validateUsername(""));
+console.log(validateUsername("   "));
+console.log(validateUsername("alexdev"));
 
 // ----------------------------------------------------------
 // 🔴 DEBUG 3 — Hard

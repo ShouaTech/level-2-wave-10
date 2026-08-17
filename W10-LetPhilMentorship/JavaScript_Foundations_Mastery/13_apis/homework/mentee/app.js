@@ -36,10 +36,247 @@
 // f) Log the company name of user with id === 7
 
 // Paste the JSON response here:
-const usersJson = `[]`; // ← replace [] with the real response
+const usersJson = `[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+      "street": "Victor Plains",
+      "suite": "Suite 879",
+      "city": "Wisokyburgh",
+      "zipcode": "90566-7771",
+      "geo": {
+        "lat": "-43.9509",
+        "lng": "-34.4618"
+      }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+      "name": "Deckow-Crist",
+      "catchPhrase": "Proactive didactic contingency",
+      "bs": "synergize scalable supply-chains"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    "email": "Nathan@yesenia.net",
+    "address": {
+      "street": "Douglas Extension",
+      "suite": "Suite 847",
+      "city": "McKenziehaven",
+      "zipcode": "59590-4157",
+      "geo": {
+        "lat": "-68.6102",
+        "lng": "-47.0653"
+      }
+    },
+    "phone": "1-463-123-4447",
+    "website": "ramiro.info",
+    "company": {
+      "name": "Romaguera-Jacobson",
+      "catchPhrase": "Face to face bifurcated interface",
+      "bs": "e-enable strategic applications"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "username": "Karianne",
+    "email": "Julianne.OConner@kory.org",
+    "address": {
+      "street": "Hoeger Mall",
+      "suite": "Apt. 692",
+      "city": "South Elvis",
+      "zipcode": "53919-4257",
+      "geo": {
+        "lat": "29.4572",
+        "lng": "-164.2990"
+      }
+    },
+    "phone": "493-170-9623 x156",
+    "website": "kale.biz",
+    "company": {
+      "name": "Robel-Corkery",
+      "catchPhrase": "Multi-tiered zero tolerance productivity",
+      "bs": "transition cutting-edge web services"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Chelsey Dietrich",
+    "username": "Kamren",
+    "email": "Lucio_Hettinger@annie.ca",
+    "address": {
+      "street": "Skiles Walks",
+      "suite": "Suite 351",
+      "city": "Roscoeview",
+      "zipcode": "33263",
+      "geo": {
+        "lat": "-31.8129",
+        "lng": "62.5342"
+      }
+    },
+    "phone": "(254)954-1289",
+    "website": "demarco.info",
+    "company": {
+      "name": "Keebler LLC",
+      "catchPhrase": "User-centric fault-tolerant solution",
+      "bs": "revolutionize end-to-end systems"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Mrs. Dennis Schulist",
+    "username": "Leopoldo_Corkery",
+    "email": "Karley_Dach@jasper.info",
+    "address": {
+      "street": "Norberto Crossing",
+      "suite": "Apt. 950",
+      "city": "South Christy",
+      "zipcode": "23505-1337",
+      "geo": {
+        "lat": "-71.4197",
+        "lng": "71.7478"
+      }
+    },
+    "phone": "1-477-935-8478 x6430",
+    "website": "ola.org",
+    "company": {
+      "name": "Considine-Lockman",
+      "catchPhrase": "Synchronised bottom-line interface",
+      "bs": "e-enable innovative applications"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Kurtis Weissnat",
+    "username": "Elwyn.Skiles",
+    "email": "Telly.Hoeger@billy.biz",
+    "address": {
+      "street": "Rex Trail",
+      "suite": "Suite 280",
+      "city": "Howemouth",
+      "zipcode": "58804-1099",
+      "geo": {
+        "lat": "24.8918",
+        "lng": "21.8984"
+      }
+    },
+    "phone": "210.067.6132",
+    "website": "elvis.io",
+    "company": {
+      "name": "Johns Group",
+      "catchPhrase": "Configurable multimedia task-force",
+      "bs": "generate enterprise e-tailers"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Nicholas Runolfsdottir V",
+    "username": "Maxime_Nienow",
+    "email": "Sherwood@rosamond.me",
+    "address": {
+      "street": "Ellsworth Summit",
+      "suite": "Suite 729",
+      "city": "Aliyaview",
+      "zipcode": "45169",
+      "geo": {
+        "lat": "-14.3990",
+        "lng": "-120.7677"
+      }
+    },
+    "phone": "586.493.6943 x140",
+    "website": "jacynthe.com",
+    "company": {
+      "name": "Abernathy Group",
+      "catchPhrase": "Implemented secondary concept",
+      "bs": "e-enable extensible e-tailers"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Glenna Reichert",
+    "username": "Delphine",
+    "email": "Chaim_McDermott@dana.io",
+    "address": {
+      "street": "Dayna Park",
+      "suite": "Suite 449",
+      "city": "Bartholomebury",
+      "zipcode": "76495-3109",
+      "geo": {
+        "lat": "24.6463",
+        "lng": "-168.8889"
+      }
+    },
+    "phone": "(775)976-6794 x41206",
+    "website": "conrad.com",
+    "company": {
+      "name": "Yost and Sons",
+      "catchPhrase": "Switchable contextually-based project",
+      "bs": "aggregate real-time technologies"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Clementina DuBuque",
+    "username": "Moriah.Stanton",
+    "email": "Rey.Padberg@karina.biz",
+    "address": {
+      "street": "Kattie Turnpike",
+      "suite": "Suite 198",
+      "city": "Lebsackbury",
+      "zipcode": "31428-2261",
+      "geo": {
+        "lat": "-38.2386",
+        "lng": "57.2232"
+      }
+    },
+    "phone": "024-648-3804",
+    "website": "ambrose.net",
+    "company": {
+      "name": "Hoeger LLC",
+      "catchPhrase": "Centralized empowering task-force",
+      "bs": "target end-to-end models"
+    }
+  }
+]`; // ← replace [] with the real response
 
 // Your code:
 
+const users = JSON.parse(usersJson);
+console.log(users.length);
+console.log(users[0].name);
+console.log(users[users.length - 1].email);
+console.log(users[2].address.city);
+console.log(users.find((user) => user.id === 7).company.name)
 // ----------------------------------------------------------
 // TASK 2 — Navigate nested data
 // ----------------------------------------------------------
@@ -58,6 +295,15 @@ const usersJson = `[]`; // ← replace [] with the real response
 //
 // d) Use forEach to log each user's name and company:
 //    "Name: [name] | Company: [company.name]"
+
+const namesArray = users.map((user) => user.name);
+console.log(`All users: ${namesArray}`);
+
+const endsWithBiz = users.filter((user) => user.email.endsWith(".biz"));
+console.log(
+  `There are ${endsWithBiz.length} people whose emails end with .biz.`,
+);
+endsWithBiz.forEach((user, index) => console.log(`${index + 1}. ${user.name}`));
 
 // ----------------------------------------------------------
 // TASK 3 — Query parameters in practice
@@ -98,7 +344,14 @@ const usersJson = `[]`; // ← replace [] with the real response
 // Use your buildQueryString logic from the live class.
 
 function buildApiUrl(baseUrl, params) {
-  // your code here
+  if (Object.keys(params).length === 0) {
+    return baseUrl;
+  }
+
+  const pairs = Object.keys(params).map((key) => {
+    return key + "=" + params[key];
+  });
+  return baseUrl + "?" + pairs.join("&");
 }
 
 // Test it:
@@ -129,7 +382,7 @@ console.log(buildApiUrl("https://jsonplaceholder.typicode.com/posts", {}));
 //
 // Copy the response and paste it below.
 
-const weatherJson = `{}`; // ← replace {} with the real response
+const weatherJson = `{"latitude":40.710335,"longitude":-73.99308,"generationtime_ms":0.12171268463134766,"utc_offset_seconds":0,"timezone":"GMT","timezone_abbreviation":"GMT","elevation":27.0,"current_weather_units":{"time":"iso8601","interval":"seconds","temperature":"°C","windspeed":"km/h","winddirection":"°","is_day":"","weathercode":"wmo code"},"current_weather":{"time":"2026-08-03T02:30","interval":900,"temperature":24.1,"windspeed":13.5,"winddirection":124,"is_day":0,"weathercode":3}}`; // ← replace {} with the real response
 
 // Then:
 // a) Parse it: const weather = JSON.parse(weatherJson)
@@ -150,6 +403,26 @@ const weatherJson = `{}`; // ← replace {} with the real response
 
 // Your code:
 
+const weather = JSON.parse(weatherJson);
+console.log(weather.current_weather.temperature);
+console.log(weather.current_weather.windspeed);
+console.log(weather.current_weather.weathercode);
+
+function describeWeather(weatherCode) {
+  if (weatherCode === 0) {
+    return "☀️ Clear sky";
+  } else if (weatherCode === 1 || weatherCode === 2 || weatherCode === 3) {
+    return "⛅ Partly cloudy";
+  } else if (weatherCode < 80) {
+    if (weatherCode === 45 || weatherCode === 48) {
+      return "🌫️ Foggy";
+    }
+  } else {
+    return "⛈️ Stormy";
+  }
+}
+
+console.log(describeWeather(weather.current_weather.weathercode));
 // ----------------------------------------------------------
 // TASK 6 — Compare two cities
 // ----------------------------------------------------------
@@ -159,8 +432,8 @@ const weatherJson = `{}`; // ← replace {} with the real response
 //
 // Paste each response below.
 
-const nycWeatherJson = `{}`; // ← NYC response
-const londonWeatherJson = `{}`; // ← London response
+const nycWeatherJson = `{"latitude":40.710335,"longitude":-73.99308,"generationtime_ms":0.12171268463134766,"utc_offset_seconds":0,"timezone":"GMT","timezone_abbreviation":"GMT","elevation":27.0,"current_weather_units":{"time":"iso8601","interval":"seconds","temperature":"°C","windspeed":"km/h","winddirection":"°","is_day":"","weathercode":"wmo code"},"current_weather":{"time":"2026-08-03T02:30","interval":900,"temperature":24.1,"windspeed":13.5,"winddirection":124,"is_day":0,"weathercode":3}}`; // ← NYC response
+const londonWeatherJson = `{"latitude":51.51147,"longitude":-0.13078308,"generationtime_ms":0.12958049774169922,"utc_offset_seconds":0,"timezone":"GMT","timezone_abbreviation":"GMT","elevation":29.0,"current_weather_units":{"time":"iso8601","interval":"seconds","temperature":"°C","windspeed":"km/h","winddirection":"°","is_day":"","weathercode":"wmo code"},"current_weather":{"time":"2026-08-03T05:15","interval":900,"temperature":18.5,"windspeed":12.2,"winddirection":55,"is_day":1,"weathercode":0}}`; // ← London response
 
 // Then:
 // a) Parse both
@@ -300,7 +573,24 @@ const postsMock = [
 // Call analyseUser(userMock, postsMock)
 
 function analyseUser(user, posts) {
-  // your code here
+  console.log(`=== ${user.name} (@${user.username}) ===`);
+  console.log(`📍 ${user.address.city}`);
+  console.log(`🏢 ${user.company.name}`);
+  console.log(`📝 Posts: ${posts.length}`);
+
+  const shortestPost = posts.reduce(function(shortest, post) {
+    if (post.title.length < shortest.title.length) {
+      return post;
+    } else {
+      return shortest;
+    }
+  });
+
+  console.log(`Shortest title: ${shortestPost.title}`);
+
+  posts.forEach(function(post) {
+    console.log(`  • ${post.title}`);
+  });
 }
 
 analyseUser(userMock, postsMock);
@@ -333,8 +623,19 @@ analyseUser(userMock, postsMock);
 // → { base: "https://jsonplaceholder.typicode.com/users", params: {} }
 
 function parseUrl(url) {
-  // your code here
+   if (url.includes("?")) {
+    const [base, queryString] = url.split("?");
+    const pairs = queryString.split("&");
+    const paramsObject = {};
+    pairs.forEach((pair) => {
+      const paramArray = pair.split("=");
+      paramsObject[paramArray[0]] = paramArray[1];
+    });
+    return { base: base, params: paramsObject };
+  }
+  return { base: url, params: {} };
 }
+
 
 console.log(
   parseUrl("https://jsonplaceholder.typicode.com/posts?userId=1&_limit=5"),

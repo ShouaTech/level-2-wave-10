@@ -124,6 +124,7 @@ console.log("\n--- Task 2: Email Validation ---");
 function isValidEmail(email) {
   const cleanEmail = email.trim().toLowerCase();
   
+  if (cleanEmail.includes("@"))
   return {
     valid: true,
     cleanEmail: cleanEmail,
@@ -151,17 +152,24 @@ function isValidEmail(email) {
 
 function isValidAge(ageInput) {
   const age = Number(ageInput);
-  if (age < 13) {
-    return {
-      valid: false,
-      message: `"${ageInput}" is not a valid number` }
-    }
+  if (isNaN(age)) {
+    return { valid: false, message: `${ageInput} is not a valid number.` };
   }
+  if (age < 13) {
+    return { valid: false, message: `Age must be at least 13 (got ${age})` };
+  }
+  if (age > 120) {
+    return { valid: false, message: `Age must be 120 or below (got ${age})` };
+  }
+  return { valid: true, age, message: `Valid age: ${age}` };
 }
 
-
 console.log("\n--- Task 3: Age Validation ---");
-// your code here
+
+console.log(isValidAge(testInputs.validAge));
+console.log(isValidAge(testInputs.youngAge));
+console.log(isValidAge(testInputs.textAge));
+console.log(isValidAge(testInputs.negativeAge));
 
 // ----------------------------------------------------------
 // TASK 4 — isValidPassword
@@ -194,11 +202,37 @@ console.log("\n--- Task 3: Age Validation ---");
 // Test with all five password test inputs.
 
 function isValidPassword(password) {
-  // your code here
+  const hasUpper = password !== password.toLowerCase();
+  const hasNumber = /[0-9]/.test(password);
+  const hasSpecial = /[!@#$%^&*?_\-]/.test(password);
+
+  const errors = [];
+  if (password.length < 8) {
+    errors.push("at least 8 characters");
+  }
+  if (!hasUpper) {
+    errors.push("one uppercase letter");
+  }
+  if (!hasNumber) {
+    errors.push("one number");
+  }
+  if (!hasSpecial) {
+    errors.push("one special character");
+  }
+
+  if (errors.length > 0) {
+    return { valid: false, message: `Password needs: ${errors.join(", ")}` };
+  }
+  return { valid: true, message: "Password meets all requirements" };
 }
 
 console.log("\n--- Task 4: Password Validation ---");
-// your code here
+
+console.log(isValidPassword(testInputs.validPassword));
+console.log(isValidPassword(testInputs.shortPassword));
+console.log(isValidPassword(testInputs.noUpperPassword));
+console.log(isValidPassword(testInputs.noNumberPassword));
+console.log(isValidPassword(testInputs.noSpecialPassword));
 
 // ----------------------------------------------------------
 // TASK 5 — formatValidationResult
@@ -213,11 +247,15 @@ console.log("\n--- Task 4: Password Validation ---");
 // Rerun your tests from Tasks 1-4 through this formatter.
 
 function formatValidationResult(fieldName, result) {
-  // your code here
+  return `${result.valid ? "✅" : "❌"} ${fieldName}: ${result.message}`;
 }
 
 console.log("\n--- Task 5: Formatted Results ---");
-// Rerun at least 3 tests from each validator through formatValidationResult
+
+console.log(formatValidationResult("Password",isValidPassword(testInputs.noUpperPassword)));
+console.log(formatValidationResult("Email", isValidEmail(testInputs.validEmail)));
+console.log(formatValidationResult("Username",isValidUsername(testInputs.spacesUsername)));
+console.log(formatValidationResult("Age", isValidAge(testInputs.textAge)));
 
 // ----------------------------------------------------------
 // TASK 6 — validateSignUpForm
@@ -254,11 +292,50 @@ console.log("\n--- Task 5: Formatted Results ---");
 // log each field result through formatValidationResult.
 
 function validateSignUpForm(formData) {
-  // your code here
+  const username = isValidUsername(formData.username);
+  const email = isValidEmail(formData.email);
+  const age = isValidAge(formData.age);
+  const password = isValidPassword(formData.password);
+
+  const results = {
+    username: username,
+    email: email,
+    age: age,
+    password: password
+  };
+
+  const formValid = Object.values(results).every((r) => r.valid);
+
+  return { valid: formValid, results };
 }
 
 console.log("\n--- Task 6: Full Form Validation ---");
-// your code here
+
+const validForm = validateSignUpForm({
+  username: "alexdev",
+  email: "alex@devstudio.com",
+  age: "28",
+  password: "SecurePass1!"
+});
+
+console.log("Form valid:", validForm.valid);
+console.log(formatValidationResult("Username", validForm.results.username));
+console.log(formatValidationResult("Email", validForm.results.email));
+console.log(formatValidationResult("Age", validForm.results.age));
+console.log(formatValidationResult("Password", validForm.results.password));
+
+const invalidForm = validateSignUpForm({
+  username: "al",
+  email: "not-an-email",
+  age: "twelve",
+  password: "abc"
+});
+
+console.log("Form valid:", invalidForm.valid);
+console.log(formatValidationResult("Username", invalidForm.results.username));
+console.log(formatValidationResult("Email", invalidForm.results.email));
+console.log(formatValidationResult("Age", invalidForm.results.age));
+console.log(formatValidationResult("Password", invalidForm.results.password));
 
 // ----------------------------------------------------------
 // TASK 7 — cleanFormData
@@ -285,11 +362,27 @@ console.log("\n--- Task 6: Full Form Validation ---");
 //   })
 
 function cleanFormData(rawFormData) {
-  // your code here
+  return {
+    username: rawFormData.username.trim().toLowerCase(),
+    email: rawFormData.email.trim().toLowerCase(),
+    age: rawFormData.age.trim(),
+    password: rawFormData.password,
+  };
 }
 
 console.log("\n--- Task 7: Cleaning Form Data ---");
-// your code here
+
+const messy = {
+  username: "  AlexDev  ",
+  email: "  ALEX@DEVSTUDIO.COM  ",
+  age: "  28  ",
+  password: "SecurePass1!",
+};
+const clean = cleanFormData(messy);
+console.log(`Cleaned ${Object.keys(clean)[0]}: "${messy.username}" -> ${clean.username}`,);
+console.log(`Cleaned ${Object.keys(clean)[1]}: "${messy.email}" -> ${clean.email}`,);
+console.log(`Cleaned ${Object.keys(clean)[2]}: "${messy.age}" -> ${clean.age}`);
+console.log(`Cleaned ${Object.keys(clean)[3]}: "${messy.password}" -> ${clean.password}`,)
 
 // ----------------------------------------------------------
 // TASK 8 — Connect the dots: full pipeline

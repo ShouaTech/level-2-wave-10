@@ -23,9 +23,19 @@ fetch(WEATHER_API + "?latitude=51.51&longitude=-0.13&current_weather=true")
   });
 
 // What's wrong ↓
+  // temperature is inside current_weather, not directly inside data.
 
 // Your fix ↓
-
+fetch(WEATHER_API + "?latitude=51.51&longitude=-0.13&current_weather=true")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log("Temperature: " + data.current_weather.temperature);
+  })
+  .catch(function(err) {
+    console.error(err.message);
+  });
 
 // ----------------------------------------------------------
 // 🟡 DEBUG 2 — Medium
@@ -49,9 +59,22 @@ fetch(WEATHER_API + "?latitude=40.71&longitude=-74.01&current_weather=true")
   });
 
 // What's wrong ↓
-
+  // response.json() is missing return, so the next .then gets undefined
 // Your fix ↓
+fetch(WEATHER_API + "?latitude=40.71&longitude=-74.01&current_weather=true")
+  .then(function(response) {
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
 
+    return response.json();
+  })
+  .then(function(data) {
+    console.log("Temp: " + data.current_weather.temperature);
+  })
+  .catch(function(err) {
+    console.error("Error:", err.message);
+  });
 
 // ----------------------------------------------------------
 // 🔴 DEBUG 3 — Hard
@@ -84,7 +107,29 @@ fetchCity("london");  // works (kinda)
 fetchCity("tokyo");   // Bug 2: crashes before even fetching
 
 // Bug 1 ↓
-
+  // temperature is inside current_weather.
 // Bug 2 ↓
+  // "tokyo" is not in CITIES, so city is undefined and city.lat crashes.
 
 // Your fix ↓
+
+function fetchCity(cityKey) {
+  const city = CITIES[cityKey];
+
+  if (!city) {
+    console.error("City not found");
+    return;
+  }
+
+  fetch(WEATHER_API + "?latitude=" + city.lat + "&longitude=" + city.lon + "&current_weather=true")
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      const temp = data.current_weather.temperature;
+      console.log(city.name + ": " + temp + "°C");
+    })
+    .catch(function(err) {
+      console.error(err.message);
+    });
+}

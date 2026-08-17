@@ -15,9 +15,10 @@ const user = JSON.parse(userJson);
 console.log(user.city); // undefined
 
 // What's wrong ↓
-
+  // city is inside the address object, not directly inside user.
 // Your fix ↓
 
+console.log(user.address.city);
 
 // ----------------------------------------------------------
 // 🟡 DEBUG 2 — Medium
@@ -39,9 +40,24 @@ console.log(buildQuery({ userId: 1, _limit: 5 }));
 // Expected: "?userId=1&_limit=5"
 
 // What's wrong ↓
-
+  //// The loop adds "&" before every item, including the first one.
 // Your fix ↓
 
+function buildQuery(params) {
+  let query = "?";
+
+  Object.keys(params).forEach(function(key, index) {
+    if (index > 0) {
+      query += "&";
+    }
+
+    query += key + "=" + params[key];
+  });
+
+  return query;
+}
+
+console.log(buildQuery({ userId: 1, _limit: 5 }));
 
 // ----------------------------------------------------------
 // 🔴 DEBUG 3 — Hard
@@ -63,7 +79,18 @@ function displayUsers(data) {
 displayUsers(apiData);
 
 // Bug 1 ↓
-
+  // data is an object, so use data.users.length.
 // Bug 2 ↓
+  // The property is role with a lowercase r, not Role.
 
 // Your fix ↓
+
+function displayUsers(data) {
+  console.log("Total users: " + data.users.length);
+
+  data.users.forEach(function(user) {
+    console.log(user.name + " — " + user.role);
+  });
+}
+
+displayUsers(apiData);
