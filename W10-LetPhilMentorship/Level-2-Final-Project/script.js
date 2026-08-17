@@ -21,21 +21,22 @@ if (savedDarkMode === "true") {
 }
 
 function calculateStreak(completedDates) {
-    let streak = 0;
-    let currentDate = new Date();
+  let streak = 0;
+  let currentDate = new Date();
 
-    for (let i = completedDates.length - 1; i >= 0; i--) {
-        const dateString = currentDate.toISOString().split("T")[0];
+  while (true) {
+    const dateString = currentDate.toISOString().split("T")[0];
 
-        if (completedDates.includes(dateString)) {
-            streak++;
-            currentDate.setDate(currentDate.getDate() - 1);
-        } else {
-            break;
-        }
+    if (completedDates.includes(dateString)) {
+      streak++;
+      const previousDay = currentDate.getDate() - 1;
+      currentDate.setDate(previousDay);
+    } else {
+      break;
     }
+  }
 
-    return streak;
+  return streak;
 }
 
 function completeHabit(habit) {
@@ -60,7 +61,11 @@ function deleteHabit(habit) {
     updateDashboard();
 }
 
-function createHabitCard({ habit, onComplete, onDelete }) {
+function createHabitCard(props) {
+    const habit = props.habit;
+    const onComplete = props.onComplete;
+    const onDelete = props.onDelete;
+
     const habitCard = document.createElement("div");
     habitCard.classList.add("habit-card");
 
@@ -116,7 +121,7 @@ function renderHabits() {
         habitsContainer.classList.add("empty-state");
 
         const emptyMessage = document.createElement("p");
-        emptyMessage.id = "no-habits";
+        emptyMessage.classList.add("no-habits");
         emptyMessage.textContent = "No habits yet. Add your first habit!";
 
         habitsContainer.appendChild(emptyMessage);
@@ -127,12 +132,15 @@ function renderHabits() {
     habitsContainer.classList.remove("empty-state");
 
     habits.forEach(function(habit) {
-        const habitCard = createHabitCard({habit: habit,
-            onComplete: function() {
-                completeHabit(habit);
+        const habitCard = createHabitCard(
+            {
+              habit: habit,
+              onComplete: function()
+            {
+              completeHabit(habit);
             },
-            onDelete: function() {
-                deleteHabit(habit);
+              onDelete: function() {
+              deleteHabit(habit);
             }
         });
 
